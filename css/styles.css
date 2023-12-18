@@ -1,0 +1,115 @@
+@import url(./reset.css);
+body {
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: clip;
+  position: relative;
+  background-color: blue;
+}
+.page {
+}
+
+.page__clouds {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  gap: 10%;
+  justify-content: space-evenly;
+  z-index: 2;
+  animation: clouds-show 1s ease forwards;
+}
+.page__cloud {
+  transform-origin: top;
+}
+.page__cloud:first-child {
+  animation: clouds 7s infinite ease-in-out alternate;
+}
+.page__cloud:last-child {
+  animation: clouds 5s infinite ease-in-out alternate-reverse;
+}
+.page__cloud img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+@keyframes clouds {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes clouds-show {
+  0% {
+    transform: translate(0px, -100%);
+  }
+
+  100% {
+    transform: translate(0px, 0%);
+  }
+}
+.page-moon {
+}
+.moon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-moon__box {
+  width: 90vh;
+  max-width: 80%;
+  transform: translate(-15%, 0px);
+}
+.page-moon__item {
+  background-color: yellow;
+  display: block;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  transform-origin: bottom;
+  /* animation: moon 5s infinite ease-in-out alternate-reverse; */
+  animation: moon 5s ease alternate forwards 5s;
+}
+.page-moon__item::before {
+  background-color: blue;
+  content: "";
+  position: absolute;
+  width: 102%;
+  height: 102%;
+  border-radius: 50%;
+  top: -1%;
+  left: -1%;
+  animation: moon-line 4s ease alternate forwards 5s;
+}
+@keyframes moon {
+  0% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes moon-line {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  100% {
+    transform: translate(-30%, 0px);
+  }
+}
